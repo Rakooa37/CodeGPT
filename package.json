@@ -1,0 +1,33 @@
+{
+  "name": "codegpt",
+  "private": true,
+  "version": "0.0.0",
+  "homepage": "https://rakooa37.github.io/CodeGpt",
+  "type": "module",
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "openai": "^3.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.7.1",
+    "react-loading-dot": "^1.0.6",
+    "react-modal": "^3.16.1",
+    "react-simple-typewriter": "^5.0.1",
+    "react-switch": "^7.0.0",
+    "react-textarea-autosize": "^8.4.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-react": "^3.1.0",
+    "gh-pages": "^5.0.0",
+    "vite": "^4.1.0"
+  }
+}

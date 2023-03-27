@@ -1,0 +1,340 @@
+$silver: rgb(192,192,192);
+$gray-purple: rgb(52, 53, 65);
+$sidebar: rgb(32,33,35);
+
+@use "./Modal";
+
+body{
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.app-wrapper{
+    height: 100vh;
+    display: flex;
+
+    
+
+    .sidebar{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        min-width: 20rem;
+        background-color: $sidebar;
+        color: white;
+
+        .sidebar__title{
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-top: 2rem;
+            font-size:1.5rem;
+        }
+        .links{
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            padding-top: 5rem;
+            align-items: center;
+            font-size: 1.25rem;
+            height: 90%;
+
+            .switch{
+                display: flex;
+                gap: 2rem;
+                align-items: center;
+                margin-top: auto;
+                margin-bottom: 3rem;
+                
+            }
+        }
+    }
+
+    .chat-section{
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: $gray-purple;
+        max-height: 100vh;
+        width: 100%;
+        overflow-y: scroll;
+        padding-bottom: 7rem;
+
+        .hamburger{
+            outline: none;
+            border: none;
+            position: absolute;
+            font-size: 1.5rem;
+            color: white;
+            top: 2%;
+            left: 2%;
+            display: none;
+            background-color: $gray-purple;
+            cursor: pointer;
+        }
+
+        .arrow{
+            background-color: $sidebar;
+            outline: none;
+            border: none;
+            position: absolute;
+            font-size: 2rem;
+            color: white;
+            top: 2%;
+            left: 2%;
+            display: none;
+            cursor: pointer;   
+            z-index: 3; 
+        }
+
+        .prompt{
+
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            padding-top: 5rem;
+        
+            
+
+            .prompt__title{
+                font-size: 2.5rem;
+                font-weight: 500;
+            }
+
+            .prompt__content{
+                display: flex;
+                justify-content: center;
+                gap:2rem;
+                flex-wrap: wrap;
+                
+
+                .content{
+                    display: flex;
+                    flex-direction: column;
+                    justify-items: center;
+                    align-items: center;
+                    gap: 1rem;
+                    
+                    .icon{
+                        font-size: 1.5rem;
+                    }
+
+                    .title{
+                        font-size: 1.5rem;
+                    }
+
+                    .card{
+                        background-color: rgb(79, 80, 95);
+                        border-radius: 5px;
+                        padding: 0.75rem;
+                        width: 12rem;
+                        height: 3rem;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+        .question-wrapper{
+            color: white;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            padding: 1rem;
+
+            .question{
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                width: 60%;
+                
+    
+                .icon{
+                    min-width: 5rem;
+                    font-size: 2.5rem;
+                    
+                }
+    
+                .question__user{
+                    
+                }
+            }
+    
+        }
+        
+        
+
+        .answer-wrapper{
+            background-color: rgb(79, 80, 95);
+            color: white;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            padding: 1rem;
+
+            -webkit-box-shadow: 0px -1px 9px 0px rgba(0,0,0,0.15);
+            -moz-box-shadow: 0px -1px 9px 0px rgba(0,0,0,0.15);
+            box-shadow: 0px -1px 9px 0px rgba(0,0,0,0.15);
+            
+            .answer{
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                width: 60%;
+                
+                
+                .icon{
+                    min-width: 5rem;
+                    font-size: 2.5rem;
+                    align-self: start;
+                    
+                }
+    
+                .answer__chat{
+                    
+                }
+            }
+            
+        }
+        
+        .wrapper-input{
+            background: rgba(52, 53, 65, 0.3);
+            position: fixed;
+            top: 88%;
+            display: flex;
+            justify-content: center;
+            width: calc(100% - 21rem);
+            padding: 2rem 0;
+
+            -webkit-box-shadow: 0px -1px 9px 0px rgba(0,0,0,0.15);
+            -moz-box-shadow: 0px -1px 9px 0px rgba(0,0,0,0.15);
+            box-shadow: 0px -1px 9px 0px rgba(0,0,0,0.15);
+
+           
+            .input{
+                height: 20px;
+                padding: 15px;
+                display: flex;
+                align-items: center;
+                vertical-align: middle;
+                font-size: 1rem;
+                resize: none;
+                width: 50%;
+                outline: none;
+                border: none;
+                border-radius: 7px;
+                background: rgb(73, 75, 90);
+                color: white;
+                
+    
+                -webkit-box-shadow: 0px 0px 43px -8px rgba(0,0,0,0.4);
+                -moz-box-shadow: 0px 0px 43px -8px rgba(0,0,0,0.4);
+                box-shadow: 0px 0px 43px -8px rgba(0,0,0,0.4);
+            }
+
+            .submit{
+                background-color: rgba(52, 53, 65);
+                outline: none;
+                border: none;
+                font-size: 1.25rem;
+                color:white;
+                cursor: pointer;
+            }
+
+            .send-icon{
+                :hover{
+                    fill:rgba(73, 75, 90);
+                    transform: translateY(-5%);
+                    
+               }
+            }
+        }
+        
+        
+    }
+}
+
+.typewriter {
+    position: relative;
+    color: black;
+    font-family: 'Merriweather Sans', sans-serif;
+    letter-spacing: 7px;
+    overflow: hidden;
+    border-right: 2px solid hsl(0, 0%, 80%);
+    white-space: nowrap;
+    animation: typewriter 6s steps(100) 1s 1 both, blinkTextCursor 600ms infinite;
+}
+
+@media screen and (max-width: 750px) {
+    .app-wrapper{
+        .sidebar{
+            display: none;
+
+            .sidebar__title{
+                padding-top: 5rem;
+                
+            }
+                
+            
+        }
+
+        .chat-section{
+            .hamburger{
+                display: block;
+            }
+            
+            .question-wrapper{
+                .question{
+                    width: 80%;
+                }
+            }
+
+            .answer-wrapper{
+                .answer{
+                    width: 80%;
+                }
+            }
+            .wrapper-input{
+                width: 95%;
+
+                .input{
+                    width: 90%;
+                }
+            }
+
+
+        }
+
+        
+        
+    }
+    
+}
+
+@keyframes typewriter {
+    0% {
+      width: 0;
+    }
+    20% {
+      width: 100%;
+    }
+    100%{
+        width: 100%;
+    }
+  }
+@keyframes blinkTextCursor {
+    from {
+      border-right-color: hsl(0, 0%, 80%);
+    }
+    to {
+      border-right-color: transparent;
+    }
+}
